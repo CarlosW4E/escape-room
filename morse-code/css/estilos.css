@@ -1,0 +1,19 @@
+body{
+	font-family: 'Roboto', sans-serif;
+	background-image: url('../../img/fondomorse3.jpg');
+}
+
+.container{
+	text-align: center;
+	width: 30%;
+	padding:3px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	
+	
+	
+	
+}

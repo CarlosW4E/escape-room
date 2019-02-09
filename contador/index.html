@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Software Room</title>
+		<link rel="stylesheet" type="text/css" href="css/estilos.css">
+		<link rel="icon" type="image/ico" href="../img/escaperoom.ico">
+	
+	</head>
+	
+	<body>
+		<!--Frío, frío-->
+		<div id="contador" class="container">50 : 00</div>
+		
+		<audio  id="audio" style="display:none" src="audio/coches.mp3"></audio>
+	</body>
+	
+	<script>
+		
+		
+		/*Duración en minutos*/
+		var duracion= 50;
+		
+		var temporal = new Date();
+		var end= new Date(temporal.getFullYear(), temporal.getMonth(), temporal.getDate(), temporal.getHours(), temporal.getMinutes()+duracion, temporal.getSeconds(), temporal.getMilliseconds());
+		var second = 1000;
+		var minute = second * 60;
+		var hour = minute * 60;
+		var timer;
+		
+		
+
+		function showRemaining() {
+			var now = new Date();
+			var distance = end - now;
+			if (distance <0) {
+
+				clearInterval(timer);
+				
+				return;
+			}
+		   
+			var minutes = Math.floor((distance % hour) / minute);
+			var seconds = Math.floor((distance % minute) / second);
+
+			if(minutes<10){
+				document.getElementById('contador').innerHTML = '0'+minutes + ' : ';
+			}else{
+				document.getElementById('contador').innerHTML = minutes + ' : ';
+			}
+			
+			if(seconds<10){
+				document.getElementById('contador').innerHTML += '0'+seconds;
+			}else{
+				document.getElementById('contador').innerHTML += seconds;
+			}
+			
+		}
+
+		timer = setInterval(showRemaining, 1000/2);
+		
+	</script>
+
+</html>
+
+
